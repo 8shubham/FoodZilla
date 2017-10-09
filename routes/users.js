@@ -62,7 +62,10 @@ router.post('/register', function(req, res){
 		});
 
 		User.createUser(newUser, function(err, user){
-			if(err) throw err;
+			if(err){ 
+				req.flash('error_msg', 'Registration Failed : Email ID already exisiting');
+				res.redirect('/');
+			}
 			console.log(user);
 		});
 
@@ -177,6 +180,31 @@ router.post('/search', function(req, res){
 			result : result
 		});
 	});
+});
+
+// Admin
+router.get('/admin', function(req, res){
+
+	// Restaurant.getRestaurantByStatus(function(err, result){
+	// 	if(err)	throw err;
+
+	// 	res.render('admin', {layout : false}, {
+	// 		result : result
+	// 	});
+	// });
+	res.render('admin', {layout : false});
+});
+
+//Accept
+router.get('/accept', function(req, res){
+	
+	res.render('admin', {layout : false});
+});
+
+//Reject
+router.get('/reject', function(req, res){
+	
+	res.render('admin', {layout : false});
 });
 
 module.exports = router;

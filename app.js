@@ -13,6 +13,8 @@ var mongoose = require('mongoose');
 
 mongoose.Promise = global.Promise;
 
+//mongodb://user:password@ds163494.mlab.com:63494/user
+//mongodb://localhost/user
 mongoose.connect( 'mongodb://localhost/user', {
     useMongoClient: true, 
 });

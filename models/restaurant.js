@@ -53,6 +53,11 @@ module.exports.getRestaurantByCity = function(city, callback){
 	Restaurant.find(query, callback);
 }
 
+// module.exports.getRestaurantByStatus = function(callback){
+// 	var query = {status : false};
+// 	Restaurant.find(query, callback);
+// }
+
 module.exports.comparePassword = function(candidatePassword, hash, callback){
 	bcrypt.compare(candidatePassword, hash, function(err, isMatch) {
     	if(err) throw err;
