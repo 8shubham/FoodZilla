@@ -5,6 +5,9 @@ var LocalStrategy = require('passport-local').Strategy;
 
 var User = require('../models/user');
 var Restaurant = require('../models/restaurant');
+const notifier = require('node-notifier');
+var nodemailer = require('nodemailer');
+
 
 // // Register
 // router.get('/register', function(req, res){
@@ -132,6 +135,8 @@ router.post('/updateProfile', function(req, res){
 	res.render('dashboard', {layout: false});
 });
 
+//Register Restaurant
+
 router.post('/registerRestaurant', function(req, res){
 	var name = req.body.name;
 	var owner = req.body.owner;
@@ -156,7 +161,40 @@ router.post('/registerRestaurant', function(req, res){
 			console.log(user);
 		});
 		console.log("Registered Restaurant");
+
+		console.log("pending Restaurant");
+		// for email 
+		var transporter = nodemailer.createTransport({
+		  service: 'gmail',
+		  auth: {
+		    user: 'foodzillarestaurant@gmail.com',
+		    pass: 'foodzilla2017'
+		  }
+		});
+
+		var mailOptions = {
+		  from: 'foodzillarestaurant@gmail.com',
+		  to: owner,
+		  subject: 'Registered at FoodZilla !!',
+		  html: "<h1>Hello</h1><p>Thanks for registering your restaurant  " +name+ " at foodzilla  <br>Your request is 				still pending . You will be notified soon about your request status after verification of the details provided by 	you !! </p> <br> Regards <br> FoodZilla Team  "
+		    
+		};
+
+		transporter.sendMail(mailOptions, function(error, info){
+		  if (error) {
+		    console.log(error);
+		  } else {
+		    console.log('Email sent: ' + info.response);
+		  }
+		});
+	//
+
 		req.flash('success_msg', 'Your restaurant is now registered !!');
+//notifier
+		notifier.notify({
+		  'title': 'My notification',
+  		  'message': 'Your Request is pending!'
+                });
 
 		res.render('dashboard', {layout: false});
 });
@@ -182,29 +220,235 @@ router.post('/search', function(req, res){
 	});
 });
 
-// Admin
-router.get('/admin', function(req, res){
+//Admin
+router.get('/admin',function(req,res){
 
-	// Restaurant.getRestaurantByStatus(function(err, result){
-	// 	if(err)	throw err;
+     res.render('admin',{layout:false});
 
-	// 	res.render('admin', {layout : false}, {
-	// 		result : result
-	// 	});
-	// });
-	res.render('admin', {layout : false});
 });
 
-//Accept
-router.get('/accept', function(req, res){
+
+//reviewRequest
+
+router.get('/reviewRestaurant',function(req,res){
+
+	Restaurant.getRestaurantByStatus(false,function(err,result){
 	
-	res.render('admin', {layout : false});
+		if(err)
+			throw err;
+		console.log(result.length);
+	
+		res.render('admin',{layout:false,result:result,flag:true
+		});
+
+       });
+
 });
 
-//Reject
-router.get('/reject', function(req, res){
+router.get('/viewAllRestaurant',function(req,res){
+
+	Restaurant.getRestaurantByStatus(true,function(err,result){
 	
-	res.render('admin', {layout : false});
+		if(err)
+			throw err;
+		console.log(result.length);
+	
+		res.render('admin',{layout:false,result:result,flag:false
+		});
+
+       });
+
+});
+
+router.post('/deleteRest',function(req,res){
+
+	var email=req.body.email;
+	var owner=req.body.owner;
+	var name = req.body.name;
+
+	Restaurant.deleteRestaurant(email,function(err,data){
+
+			if(err)
+				throw err;
+
+	
+				Restaurant.getRestaurantByStatus(true,function(err,result){
+
+					if(err)
+						throw err;
+					console.log(result.length);
+
+					// for email 
+					var transporter = nodemailer.createTransport({
+					  service: 'gmail',
+					  auth: {
+					    user: 'foodzillarestaurant@gmail.com',
+					    pass: 'foodzilla2017'
+					  }
+					});
+
+					var mailOptions = {
+					  from: 'foodzillarestaurant@gmail.com',
+					  to: owner,
+					  subject: 'Your restaurant site is removed from foodzilla !!',
+					  html: "<p>We are very sorry to inform you that your restaurant site "+ name + "is removed from FoodZilla</p> <p>For further details contact our team .</p>"
+					    
+					};
+
+					transporter.sendMail(mailOptions, function(error, info){
+					  if (error) {
+					    console.log(error);
+					  } else {
+					    console.log('Email sent: ' + info.response);
+					  }
+					});
+				//
+					console.log("email for delete");
+
+
+
+				res.render('admin',{layout:false,result:result,flag:false
+				});
+
+		       });
+			//res.redirect('/users/admin');
+		});		
+
+});
+
+
+router.post('/reviewRest',function(req,res){
+
+	
+	var status=req.body.status;
+	var email=req.body.email;
+	var owner=req.body.owner;
+	var name = req.body.name;
+	console.log(status);
+	console.log(email);
+
+	if(status=='Accept'){
+
+		Restaurant.UpdateStatus(email,true,function(err,data){
+
+			if(err)
+				throw err;
+
+	
+			Restaurant.getRestaurantByStatus(false,function(err,result){
+
+				if(err)
+					throw err;
+				console.log(result.length);
+				
+					// for email 
+				var transporter = nodemailer.createTransport({
+				  service: 'gmail',
+				  auth: {
+				    user: 'foodzillarestaurant@gmail.com',
+				    pass: 'foodzilla2017'
+				  }
+				});
+
+				var mailOptions = {
+				  from: 'foodzillarestaurant@gmail.com',
+				  to: owner,
+				  subject: 'Your request is accepted !!',
+				  html: "<h2>Welcome </h2> " + name + " at foodzilla <p>Your request for registration at FoodZilla has been approved . We are happy to have you as a part of our Team . At FoodZilla we care for the rapid growth of  your buisness . You will be notified soon about the terms and conditions  </p> <br> Regards <br> FoodZilla Team  "
+				    
+				};
+
+				transporter.sendMail(mailOptions, function(error, info){
+				  if (error) {
+				    console.log(error);
+				  } else {
+				    console.log('Email sent: ' + info.response);
+				  }
+				});
+			//
+				console.log("email for accept");
+
+				res.render('admin',{layout:false,result:result,flag:true,flag2:false
+				});
+
+		       });
+			//res.redirect('/users/admin');
+		});
+		
+		
+		
+	}else{
+
+		Restaurant.deleteRestaurantByStatus(email,function(err,data){
+
+			if(err)
+				throw err;
+
+	
+			Restaurant.getRestaurantByStatus(false,function(err,result){
+
+				if(err)
+					throw err;
+				console.log(result.length);
+
+
+				// for email 
+				var transporter = nodemailer.createTransport({
+				  service: 'gmail',
+				  auth: {
+				    user: 'foodzillarestaurant@gmail.com',
+				    pass: 'foodzilla2017'
+				  }
+				});
+
+				var mailOptions = {
+				  from: 'foodzillarestaurant@gmail.com',
+				  to: owner,
+				  subject: 'Your request is rejected !!',
+				  html: "<p>We are very sorry to inform you that your request for registration" + name + " at foodzilla is rejected</p> <p>You can contact personally our team .</p>"
+				    
+				};
+
+				transporter.sendMail(mailOptions, function(error, info){
+				  if (error) {
+				    console.log(error);
+				  } else {
+				    console.log('Email sent: ' + info.response);
+				  }
+				});
+			//
+				console.log("email for reject");
+
+
+				res.render('admin',{layout:false,result:result,flag:true,flag2:false
+				});
+
+		       });
+			//res.redirect('/users/admin');
+		});		
+
+	}
+
+});			
+		
+
+// Display All Registered Customers To Admin
+router.get('/viewAllCustomers',function(req,res){
+
+	User.getAllUsers(function(err,data){
+	
+		console.log("heyyyy");
+		console.log(data.length);
+		if(err)
+			throw err;
+		console.log("heyyyy");
+		console.log(data.length);
+	
+		res.render('admin',{layout:false,result:data,flag2:true,flag:false
+		});
+
+       });
+
 });
 
 module.exports = router;

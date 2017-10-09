@@ -49,3 +49,8 @@ module.exports.comparePassword = function(candidatePassword, hash, callback){
     	callback(null, isMatch);
 	});
 }
+
+// fetch all customer details to display to admin
+module.exports.getAllUsers = function(callback){
+	User.find(callback);
+}
