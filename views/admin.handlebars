@@ -1,10 +1,4 @@
 
-<!--
-Author: W3layouts
-Author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
--->
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -17,110 +11,274 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- Bootstrap Core CSS -->
 <link href="/css/bootstrap.min.css" rel='stylesheet' type='text/css' />
 <!-- Custom CSS -->
-<link href="/css/style.css" rel='stylesheet' type='text/css' />
-<link href="/css/base.css" rel='stylesheet' type='text/css' />
+<link href="/css/style1.css" rel='stylesheet' type='text/css' />
 <!-- Graph CSS -->
 <link href="/css/font-awesome.css" rel="stylesheet"> 
 <!-- jQuery -->
 <link href='//fonts.googleapis.com/css?family=Roboto:700,500,300,100italic,100,400' rel='stylesheet' type='text/css'/>
 <link href='//fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
 <!-- lined-icons -->
-<link rel="stylesheet" href="/css/icon-font.min.css" type='text/css' />
+<link rel="stylesheet" href="css/icon-font.min.css" type='text/css' />
 <script src="/js/amcharts.js"></script>	
 <script src="/js/serial.js"></script>	
 <script src="/js/light.js"></script>	
 <!-- //lined-icons -->
 <script src="/js/jquery-1.10.2.min.js"></script>
-   <!--pie-chart--->
+   <!--pie-chart-->
 <script src="/js/pie-chart.js" type="text/javascript"></script>
  <script type="text/javascript">
 
-     	  
-
+     	
 </script>
 <style>
 
-  .card {
+
+
+.card {
     /* Add shadows to create the "card" effect */
   
       border: 1 px solid black;
   }
 
 /* On mouse-over, add a deeper shadow */
-	.card:hover {
-	    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-	}
+  .card:hover {
+      box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  }
 
-	/* Add some padding inside the card container */
-	.container {
-	    padding: 2px 16px;
-	}
+  /* Add some padding inside the card container */
+  .container {
+      padding: 2px 16px;
+  }
 
-	.button {
-	    background-color: #4CAF50; /* Green */
-	    border: none;
-	    color: white;
-	    padding: 15px 32px;
-	    text-align: center;
-	    text-decoration: none;
-	    display: inline-block;
-	    font-size: 16px;
-	    margin: 4px 2px;
-	    cursor: pointer;
-	}
+  
+   .button3 {
+   border: none;
+        color: white;
+        padding: 10px 25px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 14px;
+        margin: 4px 2px; 
+        padding-left: 25px;
+        cursor: pointer;
+      border-radius: 8px;
+        box-shadow: 0 5px 5px 0 rgba(0,0,0,0.2), 0 6px 8px 0 rgba(0,0,0,0.19);    
+      background-color: #f44336; 
+  }
+  .button2{
+    background-color: #008CBA;
+     border: none;
+        color: white;
+        padding: 10px 25px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 14px;
+        margin: 4px 2px; 
+        padding-left: 25px;
+        cursor: pointer;
+      border-radius: 8px;
+        box-shadow: 0 5px 5px 0 rgba(0,0,0,0.2), 0 6px 8px 0 rgba(0,0,0,0.19); 
+        margin-left: 30px;
+  }
 
-	.button2 {background-color: #008CBA;
-			margin-right:15px;
-margin-left:5px;} /* Blue */
-	.button3 {background-color: #f44336;} /* Red */ 
-	.button4 {background-color: #e7e7e7; color: black;} /* Gray */ 
-	.button5 {background-color: #555555;} /* Black */
+  .table .tr .td .th{
+  	border: 1px solid black;
+  }
+        
 
 </style>
 
 </head> 
 <body>
+	<!--start of sidebar-menu-->
+
    <div class="page-container">
-   <!--/content-inner-->
-	
-				<!--//content-inner-->
-			<!--/sidebar-menu-->
+  
+			
 				<div class="sidebar-menu">
 					<header class="logo1">
 						<a href="#" class="sidebar-icon"> <span class="fa fa-bars"></span> </a> 
 					</header>
 						<div style="border-top:1px ridge rgba(255, 255, 255, 0.15)"></div>
-                           					<div class="menu">
+                           	<div class="menu">
 									<ul id="menu" >
-										<li><a href="/"><i class="fa fa-tachometer"></i> <span>Home</span></a></li>
-										<li><a href="/users/admin" ><i class="fa fa-tachometer"></i> <span>Review Requests</span></a></li>
-										
-										<li><a href=""><i class="lnr lnr-pencil"></i> <span>View Restaurant</span></a></li>
-								  </ul>
-								</div>
-						</div>
-						<div class="clearfix"></div>		
+
+					                      <li><a href="/"><i class="fa fa-home fa-2x"></i> <span>Home</span></a></li>
+					                      <li><a href="/users/reviewRestaurant"><i class="fa fa-laptop fa-2x"></i> <span>Review Requests</span></a></li>
+					                      
+					                      <li><a href="/users/viewAllRestaurant"><i class="fa fa-eye"></i> <span>View Restaurant</span></a></li>
+					                      <li><a href="/users/viewAllCustomers"><i class="fa fa-street-view" aria-hidden="true"></i> <span>View Registered Users</span></a></li>
+
+				                    </ul>
+							</div>
 				</div>
-				
+				<div class="clearfix"></div>		
+	</div>
+	<!-- end of sidebar-menu-->
+
+
+	<!-- start of div to display all pending request -->
+			{{#if flag}}
+			<div  id="requestRest" style="margin-left:300px;">
+	                        
 				{{#each result}}
+				<div class="card" style="border:1px solid black; width:90%; background-color:#FAEDB7">
+          			  <div class="container">
+           				   <div class="col-md-12">
+           					   <div class="row">
+					                <div class="col-md-6">
+					                  <span style="font-size:40px;font-family: cursive;text-decoration: underline;text-transform: uppercase;">{{this.name}}</span>
+					                  <br>
+					                  <ul style="color: blue; font-family: Comic Sans MS "><span    style="list-style-type: square;color: red;font-weight: bold;font-family: Arial" >Location : </span>{{this.city}}</ul>
+					      
+					                </div>
+				        	        <div class="col-md-6">
+				            	    </div>
+             		 			</div>
+            				</div>
+				            <div class="col-md-12">
+				              <div class="row">
+				               <ul style="color: blue; font-family: Comic Sans MS "><span    style="list-style-type: square;color: red;font-weight: bold;font-family: Arial" >Contact Details : </span> {{this.email}}</ul>               
+				              </div>
+				            </div>
+				            <div class="col-md-12">
+				              <div class="row">
+				                <div class="col-md-12">
+				                 <ul style="color: blue; font-family: Comic Sans MS "><span    style="list-style-type: square;color: red;font-weight: bold;font-family: Arial" >Description :  </span>" {{this.description}}  " </ul>
+				                 
+				                </div>
+				              </div>
+				             </div>
 
-				<div  id="requestRest" style="margin-left:300px;" align = "center">
-
-					<div class="card" style="border:1px solid black; width:40%; background-color:#FAEDB7">
-
-						  <h1>{{result.name}}</h1>
-						  <p class="title">{{result.email}}</p>
-						  <p>{{result.owner}}</p>
-						  <p>{{result.city}}</p>
-						  <p>{{result.description}}</p>
-						
-						 <p><button class ="button2" onclick = "window.location.href = '/users/accept';">Accept</button>
-						 <button class ="button3" onclick = "window.location.href = '/users/reject';">Reject</button></p>
+							<div class="col-md-12">
+									<div class = "row">
+										<form action="/users/reviewRest" method="post"> 									
+			 					    			<p>
+											     <input type="hidden" name="email" value="{{this.email}}">
+											     <input type="hidden" name="owner" value="{{this.owner}}">
+											     <input type="hidden" name="name" value="{{this.name}}">
+											     <input type="submit" name="status" value="Accept" class="button2">
+											     <input type="submit" name="status" value="Reject" class="button3">	
+										</form>
+									</div>
+							</div>
+					
 					</div>
 
 				</div>
+				<br>
+
 				{{/each}}
-			
+
+			</div>
+
+			<!-- end of div to display all pending request-->
+
+			{{else}}
+
+				<!-- start of div to display all registered customers -->
+
+				{{#if flag2 }}
+
+				
+					<div  id="viewCustomer" style="margin-left:300px;">
+							<h1 style="text-align: center"> All Registered Users </h1>
+		              
+				          	<div class="container">
+
+			     			   <table class="" style="border:1px solid black">
+				         			 <thead>
+				         			 	 <tr>
+							              <th>First Name</th>
+							              <th>Last Name</th>
+							              <th>Email</th>
+							            </tr>
+							         </thead>    
+							         <tbody>
+									{{#each result}}
+										<tr>
+											<td>{{this.fname}}</td>
+											<td>{{this.lname}}</td>
+											<td>{{this.email}}</td>	
+										</tr>
+									{{/each}}
+									</tbody>
+								</table>	
+							</div>
+					</div>
+
+			<!-- end of div to display all registered customers -->
+
+			{{else}}
+
+			<!-- start of div to display all registered restaurant -->
+
+			<div  id="viewRest" style="margin-left:300px;">
+	                        
+				{{#each result}}
+				 <div class="card" style="border:1px solid black; width:90%; background-color:#FAEDB7">
+            
+            		<div class="container">
+             
+             			 <div class="col-md-12">
+             				 <div class="row">
+				                <div class="col-md-6">
+				                  <span style="font-size:30px;font-family: cursive;text-decoration: underline;text-transform: uppercase;">{{this.name}}</span>
+				                  <br>
+				                  <ul style="color: blue; font-family: Comic Sans MS "><span    style="list-style-type: square;color: red;font-weight: bold;font-family: Arial" >Location : </span>{{this.city}}</ul>
+				      
+				                </div>
+				                <div class="col-md-6">
+				                </div>
+             			 	</div>
+            			</div>
+
+			            <div class="col-md-12">
+			              <div class="row">
+			               <ul style="color: blue; font-family: Comic Sans MS "><span    style="list-style-type: square;color: red;font-weight: bold;font-family: Arial" >Contact Details : </span> {{this.email}}</ul>               
+			              </div>
+			            </div>
+
+			            <div class="col-md-12">
+			              <div class="row">
+			                <div class="col-md-12">
+			                 <ul style="color: blue; font-family: Comic Sans MS "><span    style="list-style-type: square;color: red;font-weight: bold;font-family: Arial" >Description :  </span>" {{this.description}}  " </ul>
+			                 
+			                </div>
+			              </div>
+			            </div>
+
+						<div class="col-md-12">
+								<div class = "row">
+									<form action="/users/deleteRest" method="post"> 									
+		 					    			<p>
+										     <input type="hidden" name="email" value="{{this.email}}">
+										     <input type="hidden" name="owner" value="{{this.owner}}">
+										     <input type="hidden" name="name" value="{{this.name}}">
+										     <input type="submit" value="Delete" class="button3">	
+									</form>
+								</div>
+						</div>
+					
+					</div>
+
+				</div><br>
+				{{/each}}
+
+			</div>
+			<!-- end of div to display all registered restaurants -->
+
+			{{/if}}
+
+			{{/if}}
+
+
+
+
+
+
 			<script>
 							var toggle = true;
 										
@@ -147,9 +305,19 @@ margin-left:5px;} /* Blue */
 <!-- Bootstrap Core JavaScript -->
    <script src="/js/bootstrap.min.js"></script>
    <!-- /Bootstrap Core JavaScript -->
- 
+   <!-- real-time -->
+<script language="javascript" type="text/javascript" src="/js/jquery.flot.js"></script>
+	<script type="text/javascript">
+
+		function showRequest() {
+			    document.getElementById('requestRest').style.display = "inline-block";
+			//document.getElementById('viewRestaurant').style.display = "none";
+			//document.getElementById('updateProfile').style.display = "none";		
+		}
+
+	</script>
+<!-- /real-time -->
 <script src="/js/jquery.fn.gantt.js"></script>
-   
-		   <script src="/js/menu_jquery.js"></script>
+<script src="/js/menu_jquery.js"></script>
 </body>
 </html>
