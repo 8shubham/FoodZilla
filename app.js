@@ -22,9 +22,10 @@ var db = mongoose.connection;
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
-
+var menu = require('./routes/menu');
 // Init App
 var app = express();
+url="";
 
 // View Engine
 // var cons = require('consolidate');
@@ -89,6 +90,7 @@ app.use(function (req, res, next) {
 
 app.use('/', routes);
 app.use('/users', users);
+app.use('/menu',menu);
 
 // Set Port
 app.set('port', (process.env.PORT || 3000));

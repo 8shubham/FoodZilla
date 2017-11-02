@@ -14,6 +14,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <link href="/css/base.css" rel="stylesheet" type="text/css" media="all" />
 <link href="/css/style.css" rel="stylesheet" type="text/css" media="all" />
 <link href="/css/clndr.css" rel="stylesheet" type="text/css" media="all" />
+<link href="/css/restaurantstyle.css" rel="stylesheet" type="text/css" media="all" />
+
+<link href="/lib/semantic/semantic.min.css" rel="stylesheet">
+<link href="/css/s.css" rel="stylesheet" type="text/css" media="all" />
+<link href="/css/font.css" rel="stylesheet" type="text/css" media="all" />
+<link href="/css/delievery.css" rel="stylesheet" type="text/css" media="all" />
+
 <!-- js -->
 <script type="text/javascript" src="/js/jquery-2.1.4.min.js"></script>
 <script src="/js/modernizr.min.js"></script>
@@ -77,12 +84,45 @@ $(document).ready(function(){
 						<!-- Collect the nav links, forms, and other content for toggling -->
 						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 							<ul class="nav navbar-nav">
-								<li><a class="active scroll" href="/">Home</a></li>
+								<li><a  href="/">Home</a></li>
 								<li><a href="#toabout">About</a></li>
 								<li><a href="#toservices" >Services</a></li>
 								<li><a  href="#toourteam" >Team</a></li>	
 								{{#if user}}
-									<li><a href="/users/dashboard">Dashboard</a></li>
+									
+									<li>
+										<form action="/users/profile" method="post">
+											<input type="hidden" name="email" value="{{user.email}}" >
+											<input type="submit" value="PROFILE" style="background-color:#C76994;border: none;color: #000 !important;
+												    font-size: 15px;
+												    margin: 0;
+												    text-decoration: none;
+												    padding: 0;
+												    font-weight: 600;
+												    text-transform: uppercase;
+												    letter-spacing: 2px;">
+										</form>	
+									</li>
+									<li>
+										<form action="/users/cart" method="post">
+											<input type="hidden" name="email" value="{{user.email}}" >
+											<input type="submit" value="CART" style="background-color:#C76994;border: none;color: #000 !important;
+												    font-size: 15px;
+												    margin: 0;
+												    text-decoration: none;
+												    padding: 0;
+												    font-weight: 600;
+												    text-transform: uppercase;
+												    letter-spacing: 2px;">
+										</form>	
+									</li>
+									<li>
+										<form action="/users/cart" method="post">
+											<input type="hidden" name="email" value="{{user.email}}" >
+											<iuput type="submit" value="Cart" > 	
+										</form>
+									</li>
+
 								{{/if}}
 							</ul>
 							<div class="clearfix"> </div>							
@@ -101,18 +141,23 @@ $(document).ready(function(){
 				</div>
 				<div class="agileits_w3layouts_sign_in">
 					<ul>
-						<li><div class="agileinfo_search">
+						   <li><div class="agileinfo_search">
 								<form action="/users/search" method="post" id = "searchform">
 									<input type="text" name="city" id="city" placeholder="Type city here..." required="">
 									<input type="submit" value=" "  onclick="convert()">
 								</form>
 							</div></li>
-							
 							{{#if user}}
+								
 								<li><a href="/users/logout">Logout</a></li>
 							{{else}}
+
+								<li><a href="#restaurant-dialog" class="play-icon popup-with-zoom-anim">Restaurant Owner</a></li>
 								<li><a href="#small-dialog"  class="play-icon popup-with-zoom-anim">Sign In</a></li>
+								<li><a href="#admin-dialog"  class="play-icon popup-with-zoom-anim">Admin</a></li>
 							{{/if}}
+							
+							
 					</ul>
 				</div>
 				<div class="clearfix"> </div>
@@ -131,6 +176,32 @@ $(document).ready(function(){
 	    form.submit();
 	}
 </script>
+
+			<!-- START of Modal For Restaurant Sign Up -->
+<div id="restaurant-dialog" class="mfp-hide w3ls_small_dialog wthree_pop">
+		<h3 class="agileinfo_sign">Sign In</h3>	
+		<div class="agileits_signin_form">
+			<form action="/users/restaurantLogin" method="post">
+				<input type="email" name="email" placeholder="Restaurant Email" required="">
+				<input type="password" name="password" placeholder="Password" required="">
+				<div class="agile_remember">
+					<div class="agile_remember_left">
+						<div class="check">
+							<label class="checkbox"><input type="checkbox" name="checkbox"><i> </i>remember me</label>
+						</div>
+					</div>
+					<div class="agile_remember_right">
+						<a href="#">Forgot Password?</a>
+					</div>
+					<div class="clearfix"> </div>
+					<input type="submit" value="SIGN IN">
+				</div>
+			</form>
+		</div>
+	</div>
+
+			<!-- End of Modal For Restaurant Sign Up -->
+
 
 <!-- pop-up-box -->
 	<div id="small-dialog" class="mfp-hide w3ls_small_dialog wthree_pop">
@@ -164,12 +235,65 @@ $(document).ready(function(){
 		</div>
 	</div>
 	
+	<div id="admin-dialog" class="mfp-hide w3ls_small_dialog wthree_pop">
+		<h3 class="agileinfo_sign">Admin Sign In</h3>	
+		<div class="agileits_signin_form">
+			<form action="/users/adminlogin" method="post">
+				<input type="email" name="email" placeholder="Your Email" required="">
+				<input type="password" name="password" placeholder="Password" required="">
+				<div class="agile_remember">
+					<div class="agile_remember_left">
+						<div class="check">
+							<label class="checkbox"><input type="checkbox" name="checkbox"><i> </i>remember me</label>
+						</div>
+					</div>
+					<div class="agile_remember_right">
+						<a href="#">Forgot Password?</a>
+					</div>
+					<div class="clearfix"> </div>
+				</div>
+				<input type="submit" value="SIGN IN">
+				<p>Don't have an account <a href="#small-dialog7" class="play-icon popup-with-zoom-anim">Sign Up</a></p>
+				<div class="w3agile_social_icons">
+					<ul>
+						<li class="wthree_follow">Follow us on :</li>
+						<li><a href="#" class="w3_agile_facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+						<li><a href="#" class="agile_twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+						<li><a href="#" class="w3_agile_dribble"><i class="fa fa-dribbble" aria-hidden="true"></i></a></li>
+					</ul>	
+				</div>
+			</form>
+		</div>
+	</div>
+
 	<div id="small-dialog1" class="mfp-hide w3ls_small_dialog wthree_pop">
 		<h3 class="agileinfo_sign">Sign Up</h3>	
 		<div class="agileits_signin_form">
 			<form action="/users/register" method="post">
 				<input type="text" name="fname" placeholder="First Name" required="">
 				<input type="text" name="lname" placeholder="Last Name" required="">
+				<input type="email" name="email" placeholder="Your Email" required="">
+				<input type="password" name="password" placeholder="Password" required="">
+				<input type="password" name="password2" placeholder="Confirm Password" required="">
+				<input type="submit" value="SIGN UP">
+				<p>Already a member <a href="#small-dialog" class="play-icon popup-with-zoom-anim">Sign In</a></p>
+				<div class="w3agile_social_icons">
+					<ul>
+						<li class="wthree_follow">Follow us on :</li>
+						<li><a href="#" class="w3_agile_facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+						<li><a href="#" class="agile_twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+						<li><a href="#" class="w3_agile_dribble"><i class="fa fa-dribbble" aria-hidden="true"></i></a></li>
+					</ul>	
+				</div>
+			</form>
+		</div>
+	</div>
+
+	<div id="small-dialog7" class="mfp-hide w3ls_small_dialog wthree_pop">
+		<h3 class="agileinfo_sign">Sign Up</h3>	
+		<div class="agileits_signin_form">
+			<form action="/users/adminregister" method="post">
+		
 				<input type="email" name="email" placeholder="Your Email" required="">
 				<input type="password" name="password" placeholder="Password" required="">
 				<input type="password" name="password2" placeholder="Confirm Password" required="">

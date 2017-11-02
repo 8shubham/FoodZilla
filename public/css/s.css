@@ -1,0 +1,94 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+    font-size: 14px;
+    line-height: 1.4285em;
+    
+}
+.zred {
+    color: #cb202d;
+}
+[tabindex] {
+    outline: 0;
+}
+.bold {
+    font-weight: 700;
+}
+
+.fontsize2 {
+    font-size: 18px;
+}
+
+.zgreen {
+    color: #099e44;
+}
+
+/* Create three equal columns that floats next to each other */
+.column {
+    float: left;
+    width: 33.33%;
+    padding: 10px;
+    padding-left: 4.5em;
+    height: 300px; /* Should be removed. Only for demonstration */
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.res-map-link {
+    display: block;
+    text-indent: -1000px;
+    overflow: hidden;
+    background: 0 0;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 3;
+}
+
+a {
+    background: 0 0;
+    color: #33373D;
+    text-decoration: none;
+}
+
+.resmap {
+    overflow: hidden;
+    border-radius: 3px;
+    background: #f4f4f4;
+    width: 75%;
+    height: 100px;
+    border: 1px solid #EDEDED;
+    position: relative;
+    margin-bottom: 10px;
+    max-width: 100%;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.mb5 {
+    margin-bottom: 5px;
+}
+.mt5 {
+    margin-top: 5px;
+}
+.resmap-img {
+    width: 100%;
+    display: block;
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    z-index: 1;
+    left: 0;
+    right: 0;
+    height: 150px;
+}

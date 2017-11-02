@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Profile</title>
+		
+<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+<link href="css/q.css" rel="stylesheet" type="text/css" media="all" />
+
+<!-- js -->
+<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+<link href="css/font-awesome.css" rel="stylesheet"> 
+<!-- //font-awesome icons -->
+<link href="//fonts.googleapis.com/css?family=Work+Sans:100,200,300,400,500,600,700,800,900&amp;subset=latin-ext" rel="stylesheet">
+<link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+
+<script src="js/easyResponsiveTabs.js" type="text/javascript"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#horizontalTab').easyResponsiveTabs({
+            type: 'default',           
+            width: 'auto', 
+            fit: true   
+        });
+    });
+    
+</script>
+
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-4">
+                <div class="well well-sm">
+                    <div class="row">
+                        <div class="col-sm-12 col-md-12">
+                            <img src={{user.path}} alt="Profile Photo" class="img-rounded img-responsive" />
+                             <form action="/users/uploadProfile" method="post" enctype="multipart/form-data">
+                                 <input type="file" class="btn-medium" name="profile_url" value="Upload">
+                                 <input type="hidden" name="email" value={{user.email}} >
+                                 <br>
+                                 <input type="submit" class="btn-danger" style="width:150px;" value="Upload" name="submit">
+                            </form>   
+
+                            <br><br>
+
+                                <h4> <b> {{user.fname}} {{user.lname}}</b></h4>
+                                
+                                <h4>
+                                    {{user.email}}
+                                </h4>
+
+                            <br><br>
+
+                             <h3>Wallet Money: <span class="btn btn-primary"> ${{user.wallet}} </span></h3>
+                             <br>
+                            <a href="#small-dialog6" class="btn btn-info btn-md play-icon popup-with-zoom-anim" style="width:150px;">Add Money</a>
+
+                            <div id="small-dialog6" class="mfp-hide w3ls_small_dialog wthree_pop">
+                                <h3 class="agileinfo_sign">Add Money</h3>    
+                                
+                                <div class="agileits_signin_form">
+                                   <form action="/users/addmoney" method="post">
+                                         <input type="hidden" name="email" value="{{user.email}}" >
+                                         <input type="hidden" name="wallet" value="{{user.wallet}}" > 
+                                         Enter Money    
+                                         <input type="text"  name="money" value="">
+                                         <br>
+
+                                        <h4>Enter Card Details</h4>
+                                        <br>
+                                        Card No.
+                                         <input type="text" name="cardnumber" value="">
+                                         Month:
+                                         <input type="number"  name="month" value="" min="1" max="12">
+
+                                         Year:      
+                                        <input type="number"  name="year" value="" min="2017" max="2050">
+
+                                        CVV:
+                                        <input type="number" name="cvv" style="width:100px,height:100px;" min="100" max="999">
+
+                                         
+                                         <br><br><br>
+                                        <input type="submit" class="btn-danger" style="width:150px;" value="Add Money" name="submit">
+
+                                        
+                                    </form> 
+                                   
+
+                                </div>
+                            </div>
+
+                            <br><br>
+
+                            <a href="#register-dialog" class="btn btn-info btn-md play-icon popup-with-zoom-anim" style="width:150px;">Add Restaurant</a>
+
+                         <div id="register-dialog" class="mfp-hide w3ls_small_dialog wthree_pop">
+                                <h3 class="agileinfo_sign">Add Restaurant</h3>    
+                                
+                                <div class="agileits_signin_form">
+                                        <form action="/users/registerRestaurant" method="post">
+                                            
+                                                     <input type="text"  name="name" placeholder = "Enter Restaurant Name" required="">                     
+                                                    <input type="email" placeholder = "Enter Restaurant Email" name="email"  required="">
+                                                
+                                                    <input type="password" placeholder = "Enter Password" name="password"  required="">
+                                                    
+                                                    <input type="text" placeholder = "Enter Owner Email" name="owner"  required="">
+                                                
+                                                    <input type="text" placeholder = "Enter City" name="city" required="">
+                                                
+                                                    <input type="text" placeholder = "Enter Description of Restaurant" name="description"  required="">
+                                                    <div>    
+                                                          <span> Rating </span> 
+                                                         <br><br>  
+                                                          <label class="inline"> 
+                                                              <input type="radio" name="stars" value="3" checked>
+                                                              <span> 3 star </span> 
+                                                           </label>
+                                                          <label class="inline"> 
+                                                              <input type="radio" name="stars" value="5">
+                                                              <span>5 star </span> 
+                                                          </label>
+                                                        <label class="inline"> 
+                                                              <input type="radio" name="stars" value="7" checked>
+                                                              <span> 7 star </span> 
+                                                           </label>
+                                                    </div>
+                                                    <br>
+
+                                                      <input type="submit" value="Register">
+                                        </form>
+                                </div>
+                        </div>
+                            
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+             <div class="col-xs-12 col-sm-6 col-md-4" style="width:60%;margin-left:40px;margin-top:20px">
+                <h2 style="margin-bottom:20px;"><u><b><i>Placed Orders</i></b></u></h2>
+                      {{#each result}}
+
+                           <div style="border: 1px solid #ddd; padding :8px"> 
+                                <h4>
+                                     <table class="ui striped table">
+                                    <thead>
+                                        <tr>
+                                          <th><b>ITEM NAME</b></th>
+                                          <th><b>ITEM PRICE</b></th>
+                                          <th><b>NO. OF ITEMS</b></th>
+                                         
+                                        </tr>
+                                      </thead>
+                                      <tbody>
+                                              
+
+                                        {{#each this.Item}}
+                                            <tr>
+                                              <td>{{this.itemName}}</td>
+                                              <td>{{this.price}}</td>
+                                              <td>{{this.noOfItems}}</td>
+                                              
+                                            </tr>
+                                        
+
+                                               <!--  <div class="card2 mdb-color lighten-2 text-center z-depth-2" style="margin-left:100px;">
+                                                    <div class="card-body">
+                                                        
+                                                        <p class="white-text mb-0">
+                                                       <h4>item name: {{this.itemName}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                        price :{{this.price}}
+                                                        No of Items: {{this.noOfItems}}</h4><br>
+                                                        
+                                                 
+                                                         
+                                                    </div>
+                                                </div>
+                                            <br>
+                                              -->
+                                         {{/each}}
+
+                              </tbody>
+                              
+                              </table>  
+                              </h4>        
+  <h4 ><i >Restaurant Contact: </i> {{this.restaurantEmail}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <i>Total Price : </i>{{this.totalCost}}</h4>
+
+  </div>
+                                
+
+                        {{else}}
+                                <div class="grid_3 grid_5 w3ls">
+                                    <div class="alert alert-danger" role="alert">
+                                    <strong>No placed orders!</strong>
+                                    </div>
+                                </div>
+
+
+                        {{/each}}
+
+                     
+            </div> 
+        </div>
+    </div>
+
+ <script>
+ 
+
+ </script>   
+
+</body>
+</html>

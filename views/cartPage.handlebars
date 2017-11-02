@@ -1,0 +1,88 @@
+
+<div class="col-xs-12 col-sm-12 col-md-12" >
+
+{{#each result}}
+            
+
+<div style="border: 1px #808080; background-color:#e6ffff;box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2); padding :8px"> 
+                                <h4>
+                                     <table class="ui striped table">
+                                      <thead>
+                                        <tr>
+                                          <th><b>ITEM NAME</b></th>
+                                          <th><b>ITEM PRICE</b></th>
+                                          <th><b>NO. OF ITEMS</b></th>
+                                         
+                                        </tr>
+                                      </thead>
+
+                                      <tbody>
+
+
+
+                                    {{#each this.Item}}
+
+                                             <tr>
+                                              <td>{{this.itemName}}</td>
+                                              <td>{{this.price}}</td>
+                                              <td>{{this.noOfItems}}</td>
+                                              
+                                            </tr>
+
+                                         
+                                     {{/each}}
+
+                                     </tbody>
+                              
+                              </table>  
+                              </h4>     
+
+                     <h4 style="color:#808080;"><i >Restaurant Contact: </i> {{this.restaurantEmail}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <i>Total Price : </i>{{this.totalCost}}</h4>
+
+  </div>
+
+<br><br><br>
+                                     	   	
+
+                                     		{{else}}
+                                                    <div class="grid_3 grid_5 w3ls">
+                                                        <div class="alert alert-danger" role="alert">
+                                                        <strong>Cart is empty!</strong>
+                                                        </div>
+                                                    </div>
+
+
+                                     {{/each}}
+
+</div>
+
+
+                                    <form action="/users/proceed" method="post">
+                                     				
+                                     				<input type="hidden" name="cost" value={{cost}}>
+                                     				<input type="hidden" name="email" value={{userEmail}}>
+
+
+                                                    {{#if cost}}
+                                     				<input type="submit" style="margin-top:20px;margin-left:600px;" class="btn btn-info btn-lg" id="costButton" value="proceed"> {{/if}}
+
+                                    </form>
+
+
+<script>
+    
+	function checkcost(cost){
+		alert(cost);
+		if(cost===0){
+			alert("Cart is empty");
+			
+		}
+        else
+        {
+            //alert("hello");
+            document.getElementById('costButton').disabled = false;
+        }
+	}
+
+</script>

@@ -1,0 +1,121 @@
+.card {
+    /* Add shadows to create the "card" effect */
+    box-shadow: 0 14px 18px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    height: 300px;
+    width: 80%;
+    overflow: hidden;
+}
+
+.card1 {
+    /* Add shadows to create the "card" effect */
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width:150px;
+    height:150px;
+    
+}
+
+/* On mouse-over, add a deeper shadow */
+.card1:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    width:600px;
+    height:400px;
+}
+
+/* On mouse-over, add a deeper shadow */
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+.card-text
+{
+	word-wrap: break-word;
+}
+/* Add some padding inside the card container */
+
+.container {
+    padding: 2px 16px;
+    
+}
+.container1 {
+    padding: 2px 16px;
+    width: 90%;
+    align-self: center;
+    margin-left: 60px;
+}
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+  width: 40%;
+}
+
+.topnav a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+    background-color: #4CAF50;
+    color: white;
+}
+.panel-primary > .panel-heading {
+    color: #fff;
+    background-color: blueviolet;
+}
+
+
+#mask {
+	  position: absolute;
+	  left: 0;
+	  top: 0;
+	  z-index: 9000;
+	  background-color: #000;
+	  display: none;
+	}
+	 
+	#boxes .window {
+	  position: absolute;
+	  left: 0;
+	  top: 0;
+	  width: 440px;
+	  height: 700px;
+	  display: none;
+	  z-index: 9999;
+	  padding: 20px;
+	  border-radius: 15px;
+	  text-align: center;
+	  display:none;
+	}
+	 
+	#boxes #dialog {
+	  width: 750px;
+	  height: 700px;
+	  background-color: #ffffff;
+	  font-family: 'Segoe UI Light', sans-serif;
+	  font-size: 15pt;
+	  
+	}
+	 
+	#popupfoot {
+	  font-size: 16pt;
+	  position: absolute;
+	  width: 250px;
+	  
+	}
+.card2 {
+    box-shadow: 0 16px 24px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    height: 120px;
+    width: 50%;
+    overflow: hidden;
+}
