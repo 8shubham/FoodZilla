@@ -1,0 +1,73 @@
+           
+<!--Display Food Items Div Start-->
+
+ <div class="col-xs-12 col-sm-12 col-md-12">
+   
+    <h4>
+         <table class="ui striped table">
+          <thead>
+            <tr>
+              <th><b>ITEM NAME</b></th>
+              <th><b>ITEM PRICE</b></th>
+              <th><b>NO. OF ITEMS</b></th>
+              <th></th>
+             
+            </tr>
+          </thead>
+
+          <tbody>
+
+
+               {{#each result.Item}}
+                <form action="/users/addToCart" method="post">
+                    <input type="hidden" value={{../result.email}} name="resEmail">
+                    <input type="hidden" name="userEmail" value={{../user.email}} name="userEmail">
+                    <input type="hidden" value={{this.itemName}} name="itemName">
+                    <input type="hidden" value={{this.price}} name="price">
+
+               <tr>
+                    <td>{{this.itemName}}</td>
+                    <td>{{this.price}}</td>
+                   
+                                   
+                    <td> 
+                        <label for="noOfItems">No Of Items :</label> <input type="number" id="noOfItems" min="1" max="5" name="noOfItems" style="width:100px;">
+                    </td>
+
+                    <td>
+                        <button style ="align:center;" onclick="addUser();" type="submit" class="btn btn-primary">ADD</button>
+                    </td>
+                </tr>
+
+                 </form>
+           
+           
+
+    
+        {{else}}
+                <div class="grid_3 grid_5 w3ls">
+                    <div class="alert alert-danger" role="alert">
+                    <strong>Sorry !</strong> Currently No items are available for Online Orders
+                    </div>
+                </div>
+        {{/each}}
+
+         </tbody>
+                              
+      </table>  
+    </h4>     
+
+
+  </div>
+
+
+<script>
+function addUser()
+{
+//    alert(user);
+
+    //document.getElementById('userEmail').value =;
+}
+</script>
+            
+ <!--display Food items Div Ends-->

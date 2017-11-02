@@ -97,10 +97,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
    <div class="page-container">
   
 			
-				<div class="sidebar-menu">
-					<header class="logo1">
-						<a href="#" class="sidebar-icon"> <span class="fa fa-bars"></span> </a> 
-					</header>
+				<div class="sidebar-menu"  style="border:1px solid black;">
+					
 						<div style="border-top:1px ridge rgba(255, 255, 255, 0.15)"></div>
                            	<div class="menu">
 									<ul id="menu" >
@@ -109,18 +107,23 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					                      <li><a href="/users/reviewRestaurant"><i class="fa fa-laptop fa-2x"></i> <span>Review Requests</span></a></li>
 					                      
 					                      <li><a href="/users/viewAllRestaurant"><i class="fa fa-eye"></i> <span>View Restaurant</span></a></li>
-					                      <li><a href="/users/viewAllCustomers"><i class="fa fa-street-view" aria-hidden="true"></i> <span>View Registered Users</span></a></li>
+					                      
 
 				                    </ul>
 							</div>
 				</div>
 				<div class="clearfix"></div>		
 	</div>
-	<!-- end of sidebar-menu-->
 
+
+	{{#if flag2}}
+
+	<!-- end of sidebar-menu-->
 
 	<!-- start of div to display all pending request -->
 			{{#if flag}}
+			
+
 			<div  id="requestRest" style="margin-left:300px;">
 	                        
 				{{#each result}}
@@ -178,42 +181,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 			{{else}}
 
-				<!-- start of div to display all registered customers -->
-
-				{{#if flag2 }}
-
-				
-					<div  id="viewCustomer" style="margin-left:300px;">
-							<h1 style="text-align: center"> All Registered Users </h1>
-		              
-				          	<div class="container">
-
-			     			   <table class="" style="border:1px solid black">
-				         			 <thead>
-				         			 	 <tr>
-							              <th>First Name</th>
-							              <th>Last Name</th>
-							              <th>Email</th>
-							            </tr>
-							         </thead>    
-							         <tbody>
-									{{#each result}}
-										<tr>
-											<td>{{this.fname}}</td>
-											<td>{{this.lname}}</td>
-											<td>{{this.email}}</td>	
-										</tr>
-									{{/each}}
-									</tbody>
-								</table>	
-							</div>
-					</div>
-
-			<!-- end of div to display all registered customers -->
-
-			{{else}}
-
-			<!-- start of div to display all registered restaurant -->
 
 			<div  id="viewRest" style="margin-left:300px;">
 	                        
@@ -268,13 +235,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				{{/each}}
 
 			</div>
-			<!-- end of div to display all registered restaurants -->
+			
 
 			{{/if}}
 
-			{{/if}}
+	</div>
+
+	{{else}}
+
+				<img src="/images/foodzilla.jpg" style="margin-left:300px">	
 
 
+	{{/if}}
 
 
 

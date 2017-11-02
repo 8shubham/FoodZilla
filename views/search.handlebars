@@ -1,38 +1,40 @@
-
-<div class="w3l-gallery">
-	<div class="container" style="">
-		<div class="galley-grid">
-			<h3 class="w3l_head w3l_head1">Restaurant</h3>
-			<p class="w3ls_head_para w3ls_head_para1">quam ultrices</p>
-			<span class="lft-bar-gallery"> </span>
-			<span class="rit-bar-gallery"> </span>
-		</div>
-		<div class="w3ls-top">
-			{{#each result}}
-			<div class="col-md-4 project">	
-				<div class="projectThumbnail">
-					<div class="projectThumbnailHover projcet-ro">
-						<h4></h4>
-						<h5>Nam libero tempore cum</h5>
-					</div>					
-					<img src="/images/restaurant.jpg" alt="Project 01" class="img-responsive thumbnailImage">
-				</div>
-				<div class="projectInfo">
-					<div class="projectNavClose">
-						<button class="closeButton"><img src="/images/cross.png" alt=""></button>
-					</div>
-					<div class="clearfix"> </div>
-					<h4>{{this.name}}</h4>
-					<p>{{this.description}}</p>			
-				</div>
-			</div>
-			{{else}}
-				<div class="grid_3 grid_5 w3ls">
-					<div class="alert alert-danger" role="alert">
-					<strong>Sorry !</strong> No available restaurants in current city.
-					</div>
-				</div>
-			{{/each}}
-			
-	</div>
+<div class="w3l-gallery" style="margin-top:-70px;">
+    <div class="container" style="">
+        
+        <div class="w3ls-top">
+            
+            {{#each result}}
+           
+            <div class="col-md-4 project">    
+                <div class="projectThumbnail">
+                    <div class="projectThumbnailHover projcet-ro">
+                        <h4></h4>
+                        <h5>Nam libero tempore cum</h5>
+                    </div>   
+                    {{this.path}}                 
+                    <img src={{this.imageurl}} alt="Project 01" class="img-responsive thumbnailImage">
+                </div>
+                <div class="projectInfo">
+                    <div class="projectNavClose">
+                        <button class="closeButton"><img src="/images/cross.png" alt=""></button>
+                    </div>
+                    <div class="clearfix"> </div>
+                     <h4>{{this.name}}</h4>
+                     <p>{{this.description}}</p>    
+                    <form action = "/users/restaurantDetails" method="post">
+                        <input type="hidden" name="restaurantEmail" value={{this.email}}>
+                         <button style ="align:center;" type="submit" class="btn btn-success">Visit</button>
+                    </form>
+                            
+                </div>
+            </div>
+            {{else}}
+                <div class="grid_3 grid_5 w3ls">
+                    <div class="alert alert-danger" role="alert">
+                    <strong>Sorry !</strong> No available restaurants in current city.
+                    </div>
+                </div>
+            {{/each}}
+            
+    </div>
 </div>

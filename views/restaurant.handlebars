@@ -1,0 +1,423 @@
+<div class="w3l-gallery" style="margin-top:-90px;">
+  
+  <div class="container">
+		  	<div class="card-text">
+				  	<div class="col-md-12">
+				  		<div class="row">
+						  		<div class="col-md-6">
+						  			
+								 	 <img src="{{user.imageurl}}" alt=" " style="width:90%;">
+								 </div>
+								  
+								 <div class="col-md-6" style="padding-left:50px;">
+									 		<h2 style="font-size:50px;color:red;">{{user.name}}</h2>
+									 		<br>
+									 		<h4>{{user.description}}</h4>
+								</div>
+						</div>
+					</div>
+			</div>
+   </div>
+			  		
+<br>
+<br>
+<br>
+
+
+    <div class="row ui segment row">
+
+         <div class="col-l-1by3 pl0 pr20 column">
+
+            <div class="mbot">
+               <div id="resinfo-phone" title="Dana Pani Elite, Malviya Nagar phone number" class="res-main-phone p-relative phone-details clearfix">
+                  <div class="phone" id="phoneNoString">
+                     <h2 class="mb5" tabindex="0" role="heading" aria-label="Phone number">Phone Numbers</h2>
+                     <span class="tel left res-tel">
+                     <span class="fontsize2 bold zgreen"><span tabindex="0" aria-label="+91 7023062198" class="tel">+91 7023062198</span></span><br><span class="fontsize2 bold zgreen"><span tabindex="0" aria-label=" +91 9785775471" class="tel">+91{{user.phoneNumber}}</span></span><br>            </span>
+                  </div>
+               </div>
+               <span class="mb5 res-main-phone-reservation">
+               <span class=" grey-text" title="Table reservations at Dana Pani Elite, Jaipur">
+               Table booking recommended </span>
+               </span>
+               <div class="clear"></div>
+            </div>
+            <div class="mbot">
+               <div class="res-info-group clearfix">
+                  <h2 tabindex="0" class="mt0 mb5">Cuisines</h2>
+                  <div class="res-info-cuisines clearfix"><a class="zred" title="View all North Indian Restaurants in Jaipur" >North Indian</a>, <a class="zred" title="View all South Indian Restaurants in Jaipur">South Indian</a>, <a class="zred" title="View all Chinese Restaurants in Jaipur" href="https://www.zomato.com/jaipur/restaurants/chinese">Chinese</a>, <a class="zred" title="View all Kebab Restaurants in Jaipur" href="https://www.zomato.com/jaipur/restaurants/kebab">Kebab</a></div>
+               </div>
+            </div>
+            <div class="mbot mtop">
+               <div class="res-info-group clearfix">
+                  <div class="res-info-detail">
+                     <span class="hdn">{{user.address}} </span>
+                     <div tabindex="0">
+                        <h2 class="left mt0 mb5">Average Cost&nbsp;</h2>
+                        <div tabindex="0" aria-label="The cost for two is computed as follows: Average of 2 mid ranged Appetizers + 2 Mains + 2 Beverages + 1 Dessert. The actual cost you incur at a restaurant might change depending on your appetite, or with changes in restaurant menu prices. This assumes no use of the bar facility, except for places in the &quot;Go out for drinks&quot; section." class="tooltip-w left"><span class="res-info-detail-icon" data-icon="|"></span></div>
+                        <div class="clear"></div>
+                     </div>
+                     <span tabindex="0" aria-label=" ₹700 for two people (approx.)&amp;nbsp;Exclusive of applicable taxes and charges, if any"> ₹{{user.averageCost}} for two people (approx.)&nbsp;</span>
+                     <div class="grey-text fontsize5 subtext">Exclusive of applicable taxes and charges, if any</div>
+                     <div class="mt5">
+                        <div tabindex="0" class="res-info-cft-text fontsize5">
+                           <span class="res-info-payment res-info-icon"></span>
+                           <span itemprop="paymentAccepted">Cash</span> and <span itemprop="paymentAccepted" title="Cards accepted at Dana Pani Elite">Cards accepted</span>                                    
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="col-l-1by3   pl20 pr20 column">
+            <div class="mbot">
+               <div class="res-info-group clearfix">
+                  <div class="res-info-detail">
+                    <!-- <div tabindex="0" class="s-title hdn">
+                        <div class="left mr10">Opening hours></div>
+                        <span class="res-timings-toggle is-closed" id="res-timings-toggle">(See more +)</span>
+                        <div class="clear"></div>
+                     </div> -->
+                     <div class="res-info-timings">
+                        <div class="clearfix" tabindex="0">
+                           <h2 class="mt0 mb5 inlineblock">Opening hours</h2>
+                           &nbsp;·&nbsp;<span class="fontsize5 zgreen">Open now</span>
+                           <div class="medium">Start Time &nbsp;&nbsp;{{user.openingHours}}</div>
+                           <div>
+                              <div class="left zred expand cursor-pointer user-select-none fontsize5">See more</div>
+                              <div class="res-week-timetable ui popup bottom left transition hidden" id="res-week-timetable">
+                                 <table style="border:0">
+                                    <tbody>
+                                       <tr class="bold">
+                                          <td class="pr10">Mon</td>
+                                          <td class="pl10">11 AM to 11 PM</td>
+                                       </tr>
+                                       <tr class="">
+                                          <td class="pr10">Tue</td>
+                                          <td class="pl10">11 AM to 11 PM</td>
+                                       </tr>
+                                       <tr class="">
+                                          <td class="pr10">Wed</td>
+                                          <td class="pl10">11 AM to 11 PM</td>
+                                       </tr>
+                                       <tr class="">
+                                          <td class="pr10">Thu</td>
+                                          <td class="pl10">11 AM to 11 PM</td>
+                                       </tr>
+                                       <tr class="">
+                                          <td class="pr10">Fri</td>
+                                          <td class="pl10">11 AM to 11 PM</td>
+                                       </tr>
+                                       <tr class="">
+                                          <td class="pr10">Sat</td>
+                                          <td class="pl10">11 AM to 11 PM</td>
+                                       </tr>
+                                       <tr class="">
+                                          <td class="pr10">Sun</td>
+                                          <td class="pl10">11 AM to 11 PM</td>
+                                       </tr>
+                                    </tbody>
+                                 </table>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="mb5">
+               <h2 tabindex="0" aria-label="Address">
+                  Address                            
+               </h2>
+            </div>
+            <div class="mbot0">
+               <div class="borderless res-main-address">
+                  <div class="resinfo-icon">
+                     <span>{{user.address}}</span>        
+                  </div>
+               </div>
+               <div class="clearfix res-main-address-links">
+                  <a class="zred fontsize5" href="https://www.zomato.com/jaipur/restaurants/dana-pani" title="All outlets for Dana Pani Elite Jaipur">See 2 more locations&nbsp;<span class="rsaquo">›</span></a>       
+                  <div class="clear"></div>
+               </div>
+            </div>
+            <div class="mbot0">
+               <div class="resbox__main--row">
+                  <div class="resmap pos-relative mt5 mb5">
+                     <a href="https://www.google.co.in/maps/place/{{user.name}} restaurant {{user.city}}/" class="res-map-link">Dana Pani Elite address, Dana Pani Elite location</a>
+                     <div id="res-map-canvas">
+                        <div class="resmap-text-container">
+                           Get Directions                         
+                        </div>
+                        <div data-is-zomato="true" data-url="https://www.zomato.com/php/staticmap?center=26.8588784000,75.8099215000&amp;size=240x150&amp;maptype=zomato\&amp;markers=26.8588784000,75.8099215000,pin_res32|&amp;sensor=false&amp;scale=2&amp;zoom=14&amp;language=en" style="background: url(&quot;https://www.zomato.com/php/staticmap?center=26.8588784000,75.8099215000&amp;size=240x150&amp;maptype=zomato&amp;markers=26.8588784000,75.8099215000,pin_res32|&amp;sensor=false&amp;scale=2&amp;zoom=14&amp;language=en&quot;) center center / cover no-repeat rgb(244, 244, 244); width: 100%; height: 100%;" class="resmap-img"></div>
+                     </div>
+                     <script type="text/javascript">
+                        var mapData = {lat: 26.8588784000, lon: 75.8099215000};
+                     </script>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="col-l-1by3  pl20 pr20  column">
+            <div class="pbot0 res-info-group ">
+               <div class="res-info-highlights">
+                  <h2 class="mbot0 " tabindex="0">More Info</h2>
+                  <div tabindex="0" aria-labelledby="labelledby_delivery" class="clearfix mb5">
+                     <i class="ui icon green small checkmark  left  icon_delivery" title="Home Delivery"></i>
+                     <div class="res-info-feature-text" id="labelledby_delivery">Home Delivery</div>
+                  </div>
+                  <div tabindex="0" aria-labelledby="labelledby_veg" class="clearfix mb5">
+                     <i class="ui icon green small checkmark  left icon_veg" title="Pure Vegetarian"></i>
+                     <div class="res-info-feature-text" id="labelledby_veg">Vegetarian Only</div>
+                  </div>
+                  <div tabindex="0" aria-label="Wifi" class="res-info-feature clearfix mb5">
+                     <i class="ui icon green small checkmark left  icon_lunch"></i>
+                     <div class="res-info-feature-text">Wifi</div>
+                  </div>
+                  <div tabindex="0" aria-label="Live Sports Screening" class="res-info-feature clearfix mb5">
+                     <i class="ui icon green small checkmark left "></i>
+                     <div class="res-info-feature-text">Live Sports Screening</div>
+                  </div>
+               </div>
+            </div>
+            <div class="mbot0  ptop0">
+               <div class="resbox__main--row res-info-group clearfix" role="group">
+                  <h3 class="mb5" tabindex="0" aria-label="Collections">Featured in Collection</h3>
+                  <div class="ln24"> <span class="res_collection_span" aria-label="Featured in Veggie Friendly Collection" tabindex="0">
+                     <a class="zred" aria-label="Veggie Friendly Collection" href="/jaipur/vegetarian-restaurants?ref=rescoll">Veggie Friendly</a></span>
+                  </div>
+               </div>
+            </div>
+            <div class="res-header-claims mbot0 ptop0 ">
+               <div class="hom">
+                  <a tabindex="0" id="resinfo-error" class="fontsize5 tooltip_formatted cursor-pointer grey-text">
+                  Report Error                                    </a>
+               </div>
+               <span class="fontsize5 tooltip_formatted claim-listing-info">
+               <i class="mini checkmark icon grey mr0"></i>
+               Claimed listing&nbsp;
+               </span>
+               <a tabindex="0" href="#" class="tooltip_formatted fontsize5 grey-text">
+               </a>
+            </div>
+         </div>
+	</div>
+<div class="container">
+
+
+    <div class="w3ls-top">
+        <h2>Menu</h2>
+        <br>
+        {{#each user.menu}}
+        
+        <div class="col-md-4 project" style="width:300px;height:150px;"> 
+          <div class="projectThumbnail">
+            <div class="projectThumbnailHover projcet-ro">
+              <h4></h4>
+              <h5>Nam libero tempore cum</h5>
+            </div>          
+            <img src={{this.path}} onclick="swipe(this.src);"   alt="Project 01" class="img-responsive thumbnailImage">
+          </div>
+        </div>
+        {{/each}}
+        <div class="col-md-4 project" style="width:150px;height:150px;">  
+          <div class="projectThumbnail">
+            <div class="projectThumbnailHover projcet-ro">
+              <h4></h4>
+              <h5>Nam libero tempore cum</h5>
+            </div>          
+            <a href="#small-dialog3" class="play-icon popup-with-zoom-anim">
+                
+                     <i class="fa fa-file-image-o" aria-hidden="true" style="font-size:60px;"> </i> </span>
+                <br></br>
+                <p>Add Menu</p>
+          
+            </a>
+          </div>
+        </div>
+
+    </div>
+
+  </div>
+
+  <br><br><br>
+  <div class="container" style="">
+
+        <div class="w3ls-top">
+          <h2>Photos</h2>
+          <br>
+          {{#each user.photo}}
+          
+          <div class="col-md-4 project" style="width:300px;height:300px;">  
+            <div class="projectThumbnail">
+              <div class="projectThumbnailHover projcet-ro">
+                <h4></h4>
+                <h5>Nam libero tempore cum</h5>
+              </div>          
+              <img src={{this.path}} alt="Project 01" class="img-responsive thumbnailImage">
+            </div>
+          </div>
+          {{/each}}
+          <div class="col-md-4 project" style="width:150px;height:150px;">  
+            <div class="projectThumbnail">
+              <div class="projectThumbnailHover projcet-ro">
+                <h4></h4>
+                <h5>Nam libero tempore cum</h5>
+              </div>          
+              <a href="#small-dialog4" class="play-icon popup-with-zoom-anim">
+                  
+                       <i class="fa fa-file-image-o" aria-hidden="true" style="font-size:60px;"> </i> </span>
+                  <br></br>
+                  <p>Add Photo</p>
+            
+              </a>
+            </div>
+          </div>
+
+        </div>
+    </div>
+
+
+	<br><br><br>
+
+      
+	<div class="container1">
+
+	<div class="panel panel-primary">
+	      <div class="panel-heading">Overview</div>
+	      <div class="panel-body">
+	     	<br>
+	    
+			<form class="form-horizontal" action="/users/updateRestaurant" method="POST">
+			   
+				    <div class="form-group">
+				      <label class="control-label col-sm-2" for="contactnumber">Phone Number:</label>
+					      <div class="col-sm-6">
+					      		<input type="hidden" name="restaurantEmail" value={{user.email}}>
+					       		 <input type="text" class="form-control" id="contactNumber"   value="{{user.phoneNumber}}" name="phone"  disabled>
+					      </div>
+				    </div>
+
+				    <div class="form-group">
+				      <label class="control-label col-sm-2" for="time">opening hours:</label>
+				      <div class="col-sm-6">          
+				        <input type="time" class="form-control" id="time1"  value="{{user.openingHours}}" name="time1" disabled>
+				      </div>
+				    </div>
+
+				    <div class="form-group">
+				      <label class="control-label col-sm-2" for="time">address:</label>
+				      <div class="col-sm-6">          
+				        <textarea class="form-control" id="address"name="address"  disabled>{{user.address}}</textarea>
+				      </div>
+				    </div>
+				    <div class="form-group">
+				      <label class="control-label col-sm-2" for="time">average cost:</label>
+				      <div class="col-sm-6">          
+				        <input type="number" min ="0" class="form-control" id="cost" value="{{user.averageCost}}" name="cost" disabled>
+				      </div>
+				    </div>
+
+				    <div class="form-group">        
+				      <div class="col-sm-offset-2 col-sm-10">
+				        <button  type ="button" class="btn btn-default" onclick="toggleInputs();" >update</button>
+				        <button type = "submit" onclick="values();"class="btn btn-default">confirm</button>
+				      </div>
+				    </div>
+			  </form>
+
+      </div>
+    
+    </div>
+    
+    <br> <br>
+    <div class="panel panel-primary" id="itemPanel">
+	      <div class="panel-heading">Enter New Item Details</div>
+		      <div class="panel-body">
+		      		<br>
+			      	<br>
+			      	<form class="form-horizontal" action="/users/addItem" method="POST">
+					     <div class="form-group">
+					           <label class="control-label col-sm-2" for="itemName">Item Name:</label>
+						      <div class="col-sm-6">
+						          <input type="hidden" id ="" name="restaurantEmail" value="{{user.email}}">
+						          
+						          <input type="text" id="itemName" class="form-control" name="itemName" placeholder="Enter item name">
+						      </div>
+					    </div>
+
+					    <div class="form-group">
+					      <label class="control-label col-sm-2" for="price">Price</label>
+					      <div class="col-sm-6">          
+					        <input type="number" min="15" max="1000" class="form-control" id="price"  name="itemPrice">
+					      </div>
+					    </div>
+
+			   			 <input type = "submit" style="margin-left:400px;" class="btn btn-default" value="ADD"><br>
+
+			      	</form>
+			</div>
+		<br> <br>
+		</div>
+   	</div>
+
+
+<!-- pop-up-box -->
+
+<div id="small-dialog3" class="mfp-hide w3ls_small_dialog wthree_pop">
+  <h3 class="agileinfo_sign">Add Menu</h3>  
+  
+  <div class="agileits_signin_form">
+    <form action="/users/menu" method="post" enctype="multipart/form-data">
+    	<input type="hidden" name="email" value={{user.email}}>
+       <input type="file" class="btn-medium" name="menu_url" value="Add Menu">
+       <br>
+         <input type="submit" class="btn-danger" style="width:150px;" value="Add" name="submit">
+    </form>
+  </div>
+</div>
+
+<div id="small-dialog4" class="mfp-hide w3ls_small_dialog wthree_pop">
+  <h3 class="agileinfo_sign">Add Photo</h3> 
+  
+  <div class="agileits_signin_form">
+    <form action="/users/photo" method="post" enctype="multipart/form-data">
+    	<input type="hidden" name="email" value={{user.email}}>
+       <input type="file" class="btn-medium" name="photo_url" value="Add Menu">
+       <br>
+         <input type="submit" class="btn-danger" style="width:150px;" value="Add" name="submit">
+    </form>
+  </div>
+</div>
+
+ <script src="lib/semantic/semantic.js"></script>
+
+<script>
+
+function swipe(src) {
+	
+   
+   var url=src;
+   
+   window.open(url,'Image','padding=-5,width=600,height=600,resizable=1');
+}
+
+
+function toggleInputs() {
+	//alert("hello");
+   document.getElementById("time1").disabled = false;
+   document.getElementById("cost").disabled = false;
+   document.getElementById("address").disabled = false;
+   document.getElementById("contactNumber").disabled = false;
+}   
+
+function values() {
+	//alert("hello");
+   var a = document.getElementById("time1").value;
+   var b = document.getElementById("cost").value;
+   var c = document.getElementById("address").value;
+   var d= document.getElementById("contactNumber").value;
+  // alert(a+b+c+d);
+}   
+
+</script>

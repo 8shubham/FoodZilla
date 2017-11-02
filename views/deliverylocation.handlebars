@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link href="lib/semantic/semantic.min.css" rel="stylesheet">
+   <link href="css/delievery.css" rel="stylesheet" type="text/css" media="all" />
+
+</head>
+<body>
+
+<div class="ui dimmer modals page transition visible active" style="display: block !important;">
+   <div class="ui addaddress small order modal transition visible active scrolling" style="display: block !important; top: 800px;">
+      <i class="close icon"></i>
+      <div class="header">Add Delivery Address</div>
+      <form action="/users/payment" class="ui form content add_address_modal" method="post">
+         <div class="bold">Delivery Area</div>
+         <div class="address-field">
+            <div class="row">
+               <div class="col-s-13 col-m-14">
+                  <div class="ui search subzones" style="width:50%">
+                     <div class="ui icon input" style="width: 100%;"><input type="text" style="font-size: 1.1em;" placeholder="Delivery Area" autocomplete="off" class="prompt "><i class="green checkmark icon"></i></div>
+                     <div class="results" style="width: 100%;"></div>
+                  </div>
+               </div>
+               <div class="col-s-3 col-m-2"></div>
+            </div>
+         </div>
+         <div class="bold">Complete Address</div>
+         <div class="row">
+         <div class="col-s-13 col-m-14">
+              <div class="ui search subzones" style="width:50%;margin-bottom: 15px">
+            <div class="col-s-16 address-field" style="width: 100%;"><input type="text" style="margin-left:15px; font-size:1.1em" name="address" placeholder="Complete Address e.g. house number, street name, landmark" class="prompt"></div>
+
+         </div>
+         </div>
+               </div>
+         <div class="bold">Delivery Instructions</div>
+         <div class="row">
+         <div class="col-s-13 col-m-14">
+              <div class="ui search subzones" style="width:50%;margin-bottom: 15px;">
+            <div class="col-s-16 address-field"><input type="text" style="margin-left:15px; font-size:1.1em" name="instructions" rows="2" placeholder="Delivery Instructions e.g. Opposite Gold Souk Mall"></div>
+             </div>
+         </div>
+         </div>
+         <!-- <div class="bold">Nickname</div>
+         <div class="row">
+            <div class="col-s-16 address-field">
+               <div class="nickname-options "><a class="ui large basic label ">Home</a><a class="ui large basic label ">Work</a><a class="ui large basic label ">Other</a></div>
+            </div>
+         </div> -->
+        <p class="bold">Bill  </p>
+         <div class="row">
+         <div class="col-s-13 col-m-14">
+                          <div class="ui search subzones" style="width:20%;margin-bottom: 15px"><input type="text" style="text-align: left; font-size:1.1em" name="instructions" rows="2" value="Rs. {{cost}}"></div>
+             </div>
+         </div>
+         </div>
+
+            <input type="hidden" name="cost" value={{cost}}>
+            <input type="hidden" name="email" value={{userEmail}}>
+          <!--  <input type="submit" value="payment"> -->
+
+          <div class="actions"><button type="submit" class="ui green button " style="color:#FFFFFF; margin-right:100px;width:80%" >READY TO PAY</button></div>
+      </form>
+
+      
+
+   </div>
+</div>
+ <script src="lib/semantic/semantic.js"></script>
+ <script>
+$('.ui.modal')
+  .modal({
+    blurring: true
+  })
+  .modal('show')
+;
+ </script>
+</body>
+</html>
+
+
+
+
+
